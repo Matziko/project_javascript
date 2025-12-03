@@ -165,7 +165,7 @@
 
 
 
-let TVA=0.2;
+
 function calculatePriceTTC(priceHT) {
   return priceHT + priceHT * TVA;
 }
@@ -191,8 +191,7 @@ function displayProductsInConsole(){
     for (let index = 0; index < productPricesHT.length; index++) {
        productPricesHT[index];
     console.log(productPricesHT[index]);
-    priceHT=productPricesHT[index];
-        calculatePriceTTC(priceHT);
+    calculatePriceTTC(priceHT);
     console.log(priceHT);
     }
 
