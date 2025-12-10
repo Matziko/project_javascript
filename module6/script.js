@@ -101,70 +101,66 @@
 
 // exo5
 
-// let featuredProductName="le nom de produit";
-// let featuredProductPriceHT=12.3455433;
-// let featuredProductDescription="Ceci est un super description";
-// let featuredProductImage="https://images.pexels.com/photos/34533776/pexels-photo-34533776.jpeg";
+let featuredProductName = "le nom de produit";
+let featuredProductPriceHT = 12.3455433;
+let featuredProductDescription = "Ceci est un super description";
+let featuredProductImage = "https://images.pexels.com/photos/34533776/pexels-photo-34533776.jpeg";
 
-// const productlist=document.getElementById("product-list");
+// const productlist = document.getElementById("product-list");
 
 
 
 // function createFeaturedProductCard() {
-//     const article = document.createElement('article');
-//     const img = document.createElement("img");
-//     const nomproduit = document.createElement("h3");
+//   const article = document.createElement('article');
+//   const img = document.createElement("img");
+//   const nomproduit = document.createElement("h3");
 
-//     nomproduit.textContent = `${featuredProductName}`;
-//     nomproduit.classList.add('product-title');
+//   nomproduit.textContent = `${featuredProductName}`;
+//   nomproduit.classList.add('product-title');
 
-//     img.classList.add('product-image');
-//     img.src = featuredProductImage;
-//     img.alt = "le alt";
-    
-//     function calculatePriceTTC(priceHT) {
-//     let ttc=priceHT+(priceHT*0.2);
+//   img.classList.add('product-image');
+//   img.src = featuredProductImage;
+//   img.alt = "le alt";
+
+//   function calculatePriceTTC(priceHT) {
+//     let ttc = priceHT + (priceHT * 0.2);
 //     return ttc;
-//     }
-    
-//     function formatPrice(price) {
+//   }
+
+//   function formatPrice(price) {
 //     return price.toFixed(2).replace(".", ",") + " €";
-//     }
+//   }
 
-//     priceHT=featuredProductPriceHT;
-//     calculatePriceTTC(priceHT);
-//     let ttc2 = calculatePriceTTC(priceHT);
-//     formatPrice(ttc2);
-    
-//     const prixttc = document.createElement("p");
-//     const descriptionproduit = document.createElement("p");
+//   priceHT = featuredProductPriceHT;
+//   calculatePriceTTC(priceHT);
+//   let ttc2 = calculatePriceTTC(priceHT);
+//   formatPrice(ttc2);
 
-//     prixttc.textContent = `le prix ttc est ${formatPrice(ttc2)}`;
-//     prixttc.classList.add('product-price');
+//   const prixttc = document.createElement("p");
+//   const descriptionproduit = document.createElement("p");
 
-//     descriptionproduit.textContent = featuredProductDescription;
-//     descriptionproduit.classList.add('product-description');
+//   prixttc.textContent = `le prix ttc est ${formatPrice(ttc2)}`;
+//   prixttc.classList.add('product-price');
 
-//     article.classList.add('product-card');
+//   descriptionproduit.textContent = featuredProductDescription;
+//   descriptionproduit.classList.add('product-description');
 
-//     productlist.appendChild(article);
-//     article.appendChild(img);
-//     article.appendChild(nomproduit);
-//     article.appendChild(prixttc);
-//     article.appendChild(descriptionproduit);
-//     return article;
+//   article.classList.add('product-card');
+
+//   productlist.appendChild(article);
+//   article.appendChild(img);
+//   article.appendChild(nomproduit);
+//   article.appendChild(prixttc);
+//   article.appendChild(descriptionproduit);
+//   return article;
 // }
-// createFeaturedProductCard() ;
-// createFeaturedProductCard() ;
-// createFeaturedProductCard() ;
-// createFeaturedProductCard() ;
-// createFeaturedProductCard() ;
-// createFeaturedProductCard() ;
+// createFeaturedProductCard();
+
 
 // exo6
 
 
-
+let TVA = 0.2;
 
 function calculatePriceTTC(priceHT) {
   return priceHT + priceHT * TVA;
@@ -176,25 +172,33 @@ function formatPrice(price) {
 
 
 
-
-let productNames=["Monster Energy:original","Monster Energy:Ultra White","Monster Energy:Ultra Black"]
-let productPricesHT=["1.50","1.80","2.60"]
+let productNames = ["Monster Energy:original", "Monster Energy:Ultra White", "Monster Energy:Ultra Black"]
+let productPricesHT = [1.50, 1.80, 2.60]
 
 console.log(productNames.length);
 
 
-function displayProductsInConsole(){
-    for (let index = 0; index < productNames.length; index++) {
-       productNames[index];
-       console.log(productNames[index]);  
-    }
-    for (let index = 0; index < productPricesHT.length; index++) {
-       productPricesHT[index];
-    console.log(productPricesHT[index]);
-    calculatePriceTTC(priceHT);
-    console.log(priceHT);
-    }
+function displayProductsInConsole() {
+  for (let index = 0; index < productPricesHT.length; index++) {
+    console.log(`Produits : ${productNames[index]} - Prix : ${formatPrice(calculatePriceTTC(productPricesHT[index]))}`);
+  }
 
 
 }
+
+
+function displayProductsInConsole() {
+  productPricesHT.forEach((priceHT, index) => {
+    const productName = productNames[index];
+    const priceTTC = calculatePriceTTC(priceHT);
+    const formattedPriceTTC = formatPrice(priceTTC);
+
+    console.log(`${index + 1}. Produits : ${productName} - Prix : ${formattedPriceTTC}`);
+  });
+}
+
 displayProductsInConsole();
+
+
+
+
